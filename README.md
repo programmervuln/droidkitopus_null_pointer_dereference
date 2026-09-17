@@ -1,4 +1,4 @@
-oC‑Recorder‑UAF README.md
+
 Overview
 ./uaf_test --recorder-uaf reproduces a null‑pointer dereference vulnerability (CWE‑476) inside the recorder path of actorapp/droidkit‑opus.
 Race condition on global OpusEncoder *_encoder state: one thread invokes cleanupRecorder() to destroy encoder, while a concurrent worker thread calls writeFrame() → opus_encode() using the freed/NULL global encoder pointer, triggering SEGV on zero‑page access.
